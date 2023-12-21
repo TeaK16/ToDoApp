@@ -1,0 +1,93 @@
+
+* :not(.comp){
+
+    background: #E8E0C8;
+}
+
+#title{
+    padding-bottom: 30px;
+    text-align: center;
+    color: #1A4146;
+}
+
+#todoTable{
+    padding-bottom: 10px;
+    border-color: #B66D2F;
+}
+#todoTable .thead tr th{
+    text-align: center;
+    color: #1A4146;
+}
+#todoTable tbody tr td:last-child, #todoTable tbody tr td:nth-child(3) {
+    text-align: center;
+}
+#todoTable tbody tr td{
+    color: #1A4146;
+}
+#editBtn{
+    background:#297272 ;
+    color: #E8E0C8;
+}
+
+#deleteBtn{
+    color: #E8E0C8;
+    background: #1A4146;
+}
+#addBtn{
+    color: #E8E0C8;
+    background: #D3A446;
+}
+
+#addBtn:hover{
+    width: 180px;
+    color: #D3A446;
+    background:#E8E0C8;
+
+}
+#pagination .page-link{
+    color: #E8E0C8;
+}
+
+#pagination .previous{
+    border-radius: 5px;
+    border-color: #D3A446;
+    background-color: #1A4146;
+}
+#pagination .next{
+    border-radius: 5px;
+    border-color: #D3A446;
+    background-color: #297272;
+}
+#pagination .item{
+    border-radius: 5px;
+    border-color: #D3A446;
+    background-color: #E8E0C8;
+    color: #B66D2F;
+}
+
+#pagination .active{
+    color: #1A4146;
+}
+
+form{
+    padding-top: 150px;
+    height: 400px;
+}
+form .form-group{
+    padding-bottom: 15px;
+}
+form .form-check {
+    padding-bottom: 15px;
+}
+form .form-check label {
+    color: #297272;
+}
+form .form-group label{
+    padding: 10px 0;
+    color: #297272;
+}
+form #submit{
+    color: #E8E0C8;
+    background-color: #B66D2F;
+}
+
