@@ -1,0 +1,8 @@
+project\kiii\ToDoList\models\dto\TaskDto.class
+project\kiii\ToDoList\services\impl\TaskServiceImpl.class
+project\kiii\ToDoList\services\TaskService.class
+project\kiii\ToDoList\web\rest\TaskRestController.class
+project\kiii\ToDoList\repositories\TaskRepository.class
+project\kiii\ToDoList\ToDoListApplication.class
+project\kiii\ToDoList\models\exceptions\TaskNotFoundException.class
+project\kiii\ToDoList\models\Task.class
