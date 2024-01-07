@@ -6,6 +6,7 @@ import lombok.Getter;
 
 @Data
 @Entity
+@Table(name = "task")
 public class Task {
     
     @Id
