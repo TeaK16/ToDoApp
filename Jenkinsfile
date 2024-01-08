@@ -9,7 +9,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     // Checkout frontend code from repository
-                    git url: 'https://github.com/TeaK16/ToDoApp/tree/master/frontend'
+                    git credentialsId: '96c42762-d20c-4124-99ef-5429529c1f36', url: 'https://github.com/TeaK16/ToDoApp.git'
                     
                     // Build frontend app and tag the Docker image
                     sh 'docker build -t TeaK16/ToDoApp/frontend .'
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 dir('backend') {
                     // Checkout backend code from repository
-                    git url: 'https://github.com/TeaK16/ToDoApp/tree/master/ToDoList'
+                    git credentialsId: '96c42762-d20c-4124-99ef-5429529c1f36', url: 'https://github.com/TeaK16/ToDoApp.git'
                     
                     // Build backend app and tag the Docker image
                     sh 'docker build -t TeaK16/ToDoApp/ToDoList .'
