@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy with docker-compose') {
             steps {
                 // Install Docker and Docker Compose if needed
-                docker.withRegistry('https://hub.docker.com/', 'c5fe9c80-3eba-4432-bf5b-31afa32bd96d_') {
+                docker.withRegistry('https://hub.docker.com/', 'c5fe9c80-3eba-4432-bf5b-31afa32bd96d') {
                  // Pull the updated images from Docker Hub
                                 sh 'docker-compose pull'
 
