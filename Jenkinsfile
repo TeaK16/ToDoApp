@@ -1,48 +1,40 @@
 pipeline {
-    agent {
-    dockerfile true
-    }
+    agent any
+    
     environment{
     DOCKER_CRED = credentials('c5fe9c80-3eba-4432-bf5b-31afa32bd96d')
     }
-
     stages {
-        stage('Build and Push Images') {
+        stage('Build and Push Frontend Image') {
             steps {
-                checkout scm
-
-                // Build and push frontend Docker image
                 dir('frontend') {
-                    sh 'npm install' // or any frontend build command
+                    // Checkout frontend code from repository
+                    git url: 'https://github.com/TeaK16/ToDoApp.git'
+                    
+                    // Build frontend app and tag the Docker image
                     sh 'docker build -t TeaK16/ToDoApp/frontend .'
+                    
+                    // Push the frontend Docker image to Docker Hub
+                    sh 'docker login -u $DOCKER_CRED_USR -p $DOCKER_CRED_PSW'
                     sh 'docker push TeaK16/ToDoApp/frontend'
-                    echo 'Build FrontendImage Completed'
-                }
-
-                // Build and push backend Docker image
-                dir('ToDoList') {
-                    sh 'mvn clean install' // or any backend build command
-                    sh 'docker build -t TeaK16/ToDoApp/ToDoList .'
-                    sh 'docker push TeaK16/ToDoApp/ToDoList'
-                    echo 'Build BackendImage Completed'
                 }
             }
         }
-        stage('Login to Docker Hub') {
-              steps{
-        	sh 'echo $DOCKER_CRED_PSW | sudo docker login -u $DOCKER_CRED_USR --password-stdin'
-        	echo 'Login Completed'
-              }
-            }
-        stage('Deploy with docker-compose') {
+        
+        stage('Build and Push Backend Image') {
             steps {
-                sh 'docker-compose pull'
-                sh 'docker-compose up -d'
-
+                dir('backend') {
+                    // Checkout backend code from repository
+                    git url: 'https://github.com/TeaK16/ToDoApp.git'
+                    
+                    // Build backend app and tag the Docker image
+                    sh 'docker build -t TeaK16/ToDoApp/ToDoList .'
+                    
+                    // Push the backend Docker image to Docker Hub
+                    sh 'docker login -u $DOCKER_CRED_USR -p $DOCKER_CRED_PSW'
+                    sh 'docker push TeaK16/ToDoApp/ToDoList'
                 }
-
-
-
+            }
         }
     }
 }
