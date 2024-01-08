@@ -23,7 +23,7 @@ pipeline {
         
         stage('Build and Push Backend Image') {
             steps {
-                dir('backend') {
+                dir('ToDoList') {
                     // Checkout backend code from repository
                     git credentialsId: '96c42762-d20c-4124-99ef-5429529c1f36', url: 'https://github.com/TeaK16/ToDoApp.git'
                     
