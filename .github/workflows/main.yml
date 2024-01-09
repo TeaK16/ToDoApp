@@ -16,8 +16,8 @@ jobs:
       - name: Build and push Backend Docker image
         working-directory: ToDoList
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          Docker: ${{DOCKER_USERNAME}}
+          Docker: ${{DOCKER_PASSWORD}}
           IMAGE_NAME_BACKEND: teak16/todoappimg
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -27,8 +27,8 @@ jobs:
       - name: Build and push Frontend Docker image
         working-directory: frontend
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          Docker: ${{DOCKER_USERNAME}}
+          Docker: ${{DOCKER_PASSWORD}}
           IMAGE_NAME_FRONTEND: teak16/todoappimg
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
