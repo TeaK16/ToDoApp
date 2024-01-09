@@ -14,15 +14,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to Docker Hub
-        run: |
-          echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+        run:  echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 
       - name: Build and push Backend Docker image
         working-directory: ToDoList
         env:
           IMAGE_NAME_BACKEND: teak16/todoappimg
         run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
           docker build -t $IMAGE_NAME_BACKEND .
           docker push $IMAGE_NAME_BACKEND
 
@@ -31,6 +29,5 @@ jobs:
         env:
           IMAGE_NAME_FRONTEND: teak16/todoappimg
         run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
           docker build -t $IMAGE_NAME_FRONTEND .
           docker push $IMAGE_NAME_FRONTEND
