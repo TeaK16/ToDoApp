@@ -1,0 +1,36 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Backend Docker image
+        working-directory: ToDoList
+        env:
+          IMAGE_NAME_BACKEND: teak16/todoappimg
+        run: |
+          docker build -t $IMAGE_NAME_BACKEND .
+          docker push $IMAGE_NAME_BACKEND
+
+      - name: Build and push Frontend Docker image
+        working-directory: frontend
+        env:
+          IMAGE_NAME_FRONTEND: teak16/todoappimg
+        run: |
+          docker build -t $IMAGE_NAME_FRONTEND .
+          docker push $IMAGE_NAME_FRONTEND
