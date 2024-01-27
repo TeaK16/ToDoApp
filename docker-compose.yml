@@ -11,8 +11,6 @@ services:
       - POSTGRES_DB=todolistdb
     ports:
       - '5432:5432'
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data
 
 
   todolist-container:
@@ -34,8 +32,7 @@ services:
     ports:
       - '3000:3000'
 
-volumes:
-  postgres_data:
+
 
 
 
