@@ -12,7 +12,7 @@ import project.kiii.ToDoList.services.impl.TaskServiceImpl;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin
 @RequestMapping("/api")
 public class TaskRestController {
 
