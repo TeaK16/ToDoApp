@@ -22,7 +22,7 @@ jobs:
       - name: Build and push Backend Docker image
         working-directory: ToDoList
         env:
-          IMAGE_NAME_BACKEND: teak16/todoappimg
+          IMAGE_NAME_BACKEND: teak16/todoappimg-backend
         run: |
           docker build -t $IMAGE_NAME_BACKEND .
           docker push $IMAGE_NAME_BACKEND
@@ -30,7 +30,7 @@ jobs:
       - name: Build and push Frontend Docker image
         working-directory: frontend
         env:
-          IMAGE_NAME_FRONTEND: teak16/todoappimg
+          IMAGE_NAME_FRONTEND: teak16/todoappimg-frontend
         run: |
           docker build -t $IMAGE_NAME_FRONTEND .
           docker push $IMAGE_NAME_FRONTEND
